@@ -1,28 +1,20 @@
 const grid = document.getElementById("pokemonGrid");
 
-let pokemon = [];
 let numbers = [];
 
 
-// JSON読み込み
 
-fetch("pokemon.json")
-.then(response => response.json())
-.then(data => {
+fetch("./pokemon.json")
+.then(res => {
 
-    pokemon = data;
+    if(!res.ok){
+        throw new Error("pokemon.json error");
+    }
 
-    createCards();
+    return res.json();
 
-});
-
-
-
-
-// カード生成
-
-function createCards(){
-
+})
+.then(pokemon => {
 
     pokemon.forEach(p => {
 
@@ -32,7 +24,7 @@ function createCards(){
         card.className = "card";
 
 
-        let imgNo =
+        let img =
             String(p.id).padStart(4,"0");
 
 
@@ -42,9 +34,7 @@ function createCards(){
             No.${p.id} ${p.name}
         </div>
 
-
-        <img src="images/${imgNo}.png"
-             onerror="this.style.display='none'">
+        <img src="images/${img}.png">
 
 
         <div class="card-buttons">
@@ -68,13 +58,20 @@ function createCards(){
     });
 
 
-}
+})
+.catch(err => {
+
+    console.error(err);
+
+    grid.innerHTML =
+    "pokemon.json読み込み失敗";
+
+});
 
 
 
 
 function add(num){
-
 
     if(!numbers.includes(num)){
 
@@ -82,21 +79,16 @@ function add(num){
 
     }
 
-
     update();
 
 }
-
-
 
 
 
 function removeNum(num){
 
-
     numbers =
     numbers.filter(x => x !== num);
-
 
     update();
 
@@ -104,24 +96,19 @@ function removeNum(num){
 
 
 
-
 function update(){
 
-
     document.getElementById("result").value =
-        numbers.join(",");
-
+    numbers.join(",");
 
 }
 
 
 
-
-
 function copyText(){
 
-    navigator.clipboard.writeText(
-        document.getElementById("result").value
-    );
+navigator.clipboard.writeText(
+    document.getElementById("result").value
+);
 
 }
