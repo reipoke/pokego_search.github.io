@@ -49,15 +49,6 @@ header {
   gap: 12px;
 }
 
-.header-ball {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: conic-gradient(#E03030 0% 50%, #fff 50% 53%, #111 53% 57%, #fff 57% 100%);
-  box-shadow: 0 0 0 2px var(--border-lt);
-  flex-shrink: 0;
-}
-
 h1 {
   font-family: 'Rajdhani', 'Noto Sans JP', sans-serif;
   font-size: 22px;
