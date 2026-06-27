@@ -1,86 +1,119 @@
-let numbers=[];
+const grid = document.getElementById("pokemonGrid");
 
 
-// ここを好きなポケモン番号に変更
-let pokemon=[
-1,2,3,4,5,
-6,7,8,9,10,
-11,12,13,14,15
-];
+// 表示する図鑑番号
+// 現在のポケモン数（1025）まで自動生成
+let pokemon = [];
+
+for(let i = 1; i <= 1025; i++){
+    pokemon.push(i);
+}
 
 
-const grid=document.getElementById("pokemonGrid");
+
+let numbers = [];
 
 
-pokemon.forEach(num=>{
+
+// カード作成
+
+pokemon.forEach(num => {
 
 
-let card=document.createElement("div");
+    let card = document.createElement("div");
 
-card.className="card";
+    card.className = "card";
 
 
-card.innerHTML=`
+    let imgNo = String(num).padStart(4,"0");
 
-<div>No.${num} ポケモン名</div>
 
-<img src="images/${String(num).padStart(4,"0")}.png">
+    card.innerHTML = `
 
-<br>
+        <div class="card-title">
+            No.${num} ポケモン名
+        </div>
 
-<button onclick="add(${num})">
-追加
-</button>
 
-<button onclick="removeNum(${num})">
-削除
-</button>
+        <img src="images/${imgNo}.png"
+             onerror="this.style.display='none'">
 
-`;
 
-grid.appendChild(card);
+        <div class="card-buttons">
+
+            <button onclick="add(${num})">
+                追加
+            </button>
+
+
+            <button onclick="removeNum(${num})">
+                削除
+            </button>
+
+        </div>
+
+    `;
+
+
+    grid.appendChild(card);
 
 
 });
 
 
 
+
+
 function update(){
 
-document.getElementById("result").value=
-numbers.join(",");
+    document.getElementById("result").value =
+        numbers.join(",");
 
 }
+
+
 
 
 
 function add(num){
 
-if(!numbers.includes(num)){
-numbers.push(num);
+
+    if(!numbers.includes(num)){
+
+        numbers.push(num);
+
+    }
+
+
+    update();
+
 }
 
-update();
 
-}
 
 
 
 function removeNum(num){
 
-numbers=
-numbers.filter(x=>x!==num);
 
-update();
+    numbers =
+        numbers.filter(x => x !== num);
+
+
+    update();
 
 }
 
 
 
+
+
 function copyText(){
 
-navigator.clipboard.writeText(
-document.getElementById("result").value
-);
+
+    navigator.clipboard.writeText(
+        document.getElementById("result").value
+    );
+
 
 }
