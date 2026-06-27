@@ -1,7 +1,7 @@
 body {
     font-family: sans-serif;
-    margin: 20px;
-    overflow: hidden;
+    margin:20px;
+    overflow:hidden;
 }
 
 
@@ -77,19 +77,15 @@ button:hover {
 /* スクロール枠 */
 
 .scroll-area {
-
     width: 970px;
-
-    height: 650px;
+    height: 650px !important;
 
     border: 4px solid black;
 
     padding: 10px;
 
-    overflow-y: scroll;
-
+    overflow-y: scroll !important;
     overflow-x: hidden;
-
 }
 
 
@@ -100,7 +96,8 @@ button:hover {
     display:grid;
     grid-template-columns:repeat(5,180px);
     gap:15px;
-    height:2000px;
+
+    width:max-content;
 }
 
 
