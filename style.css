@@ -3,6 +3,13 @@ body{
 }
 
 
+html, body {
+    height: auto;
+    min-height: 100%;
+    overflow-y: auto;
+}
+
+
 .top{
     display:flex;
     gap:30px;
