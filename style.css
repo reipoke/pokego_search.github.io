@@ -1,58 +1,181 @@
-body{
-    font-family:sans-serif;
-}
+body {
 
+    font-family: sans-serif;
 
-html, body {
-    height: auto;
-    min-height: 100%;
+    margin: 20px;
+
     overflow-y: auto;
+
 }
 
 
-.top{
+/* タイトル */
+
+h1 {
+
+    font-size: 24px;
+
+}
+
+
+
+/* 上部 */
+
+.top {
+
     display:flex;
+
     gap:30px;
-    margin:20px;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
 }
 
 
-textarea{
+
+/* 出力欄 */
+
+textarea {
+
     width:470px;
+
     height:40px;
+
     border:4px solid black;
+
+    font-size:18px;
+
+    resize:none;
+
 }
 
 
-button{
+
+/* ボタン */
+
+button {
+
     background:white;
+
     border:4px solid black;
-    font-size:16px;
+
+    font-size:18px;
+
+    padding:8px 15px;
+
+    cursor:pointer;
+
 }
 
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(5,180px);
-    gap:15px;
+button:hover {
+
+    background:#eee;
+
 }
 
 
-.card{
+
+/* スクロール枠 */
+
+.scroll-area {
+
+    width:970px;
+
+    height:650px;
+
     border:4px solid black;
+
     padding:10px;
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
 }
 
 
-.card img{
-    width:140px;
-    height:90px;
-    object-fit:contain;
+
+/* カード配置 */
+
+.grid {
+
+    display:grid;
+
+    grid-template-columns:repeat(5,180px);
+
+    gap:15px;
+
+}
+
+
+
+/* カード */
+
+.card {
+
     border:4px solid black;
+
+    padding:10px;
+
+    height:190px;
+
+    box-sizing:border-box;
+
 }
 
 
-.card button{
-    margin-top:10px;
+
+/* 名前 */
+
+.card-title {
+
+    height:25px;
+
+    font-size:16px;
+
+}
+
+
+
+/* 画像 */
+
+.card img {
+
+    width:140px;
+
+    height:90px;
+
+    object-fit:contain;
+
+    border:4px solid black;
+
+}
+
+
+
+/* 下ボタン */
+
+.card-buttons {
+
+    margin-top:8px;
+
+    display:flex;
+
+    gap:8px;
+
+}
+
+
+
+.card-buttons button {
+
     width:70px;
+
+    padding:5px;
+
+    font-size:16px;
+
 }
