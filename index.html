@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
 <meta charset="UTF-8">
 <title>検索ワードジェネレーター</title>
@@ -8,18 +9,31 @@
 
 <body>
 
-<h2>検索ワードジェネレーター</h2>
+<h1>検索ワードジェネレーター</h1>
+
 
 <div class="top">
-<textarea id="result"></textarea>
-<button onclick="copyText()">クリップボードにコピー</button>
+
+<textarea id="result" readonly></textarea>
+
+<button onclick="copyText()">
+クリップボードにコピー
+</button>
+
 </div>
 
 
+
+<div class="scroll-area">
+
 <div class="grid" id="pokemonGrid"></div>
+
+</div>
+
 
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
