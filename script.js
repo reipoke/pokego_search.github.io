@@ -1,37 +1,45 @@
 const grid = document.getElementById("pokemonGrid");
 
-
-// 表示する図鑑番号
-// 現在のポケモン数（1025）まで自動生成
 let pokemon = [];
-
-for(let i = 1; i <= 1025; i++){
-    pokemon.push(i);
-}
-
-
-
 let numbers = [];
 
 
+// JSON読み込み
 
-// カード作成
+fetch("pokemon.json")
+.then(response => response.json())
+.then(data => {
 
-pokemon.forEach(num => {
+    pokemon = data;
 
+    createCards();
 
-    let card = document.createElement("div");
-
-    card.className = "card";
-
-
-    let imgNo = String(num).padStart(4,"0");
+});
 
 
-    card.innerHTML = `
+
+
+// カード生成
+
+function createCards(){
+
+
+    pokemon.forEach(p => {
+
+
+        let card = document.createElement("div");
+
+        card.className = "card";
+
+
+        let imgNo =
+            String(p.id).padStart(4,"0");
+
+
+        card.innerHTML = `
 
         <div class="card-title">
-            No.${num} ポケモン名
+            No.${p.id} ${p.name}
         </div>
 
 
@@ -41,36 +49,26 @@ pokemon.forEach(num => {
 
         <div class="card-buttons">
 
-            <button onclick="add(${num})">
+            <button onclick="add(${p.id})">
                 追加
             </button>
 
-
-            <button onclick="removeNum(${num})">
+            <button onclick="removeNum(${p.id})">
                 削除
             </button>
 
         </div>
 
-    `;
+        `;
 
 
-    grid.appendChild(card);
+        grid.appendChild(card);
 
 
-});
+    });
 
-
-
-
-
-function update(){
-
-    document.getElementById("result").value =
-        numbers.join(",");
 
 }
-
 
 
 
@@ -97,7 +95,7 @@ function removeNum(num){
 
 
     numbers =
-        numbers.filter(x => x !== num);
+    numbers.filter(x => x !== num);
 
 
     update();
@@ -107,13 +105,23 @@ function removeNum(num){
 
 
 
+function update(){
+
+
+    document.getElementById("result").value =
+        numbers.join(",");
+
+
+}
+
+
+
+
 
 function copyText(){
-
 
     navigator.clipboard.writeText(
         document.getElementById("result").value
     );
-
 
 }
