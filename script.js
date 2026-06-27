@@ -45,7 +45,7 @@ function renderCards(list) {
       <div class="check-badge" aria-hidden="true">✓</div>
       <div class="card-title">No.${p.id} ${p.name}</div>
       <div class="card-img">
-        <img src="images/${img}.png" alt="${p.name}" loading="lazy">
+        <img src="images_home/${img}.png" alt="${p.name}" loading="lazy">
       </div>
       <div class="card-buttons">
         <button class="btn-add" onclick="add(${p.id})">追加</button>
