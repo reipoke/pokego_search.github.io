@@ -24,7 +24,7 @@ card.innerHTML=`
 
 <div>No.${num} ポケモン名</div>
 
-<img src="images/${String(num).padStart(3,"0")}.png">
+<img src="images/${String(num).padStart(4,"0")}.png">
 
 <br>
 
