@@ -74,7 +74,8 @@ button:hover {
 }
 
 .card-buttons button {
-    width:65px;
+    width:70px;
+    height:25px;
     padding:3px;
     font-size:13px;
     gap:12px;
